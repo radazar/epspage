@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EPS COLSALUD</title>
+    <meta charset="UTF-8">
+    <meta autor="Andrei" description="Pagina js, html y css">
+    <link rel="icon" type="image/jpg" href="img/ico.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script src="/js/empleador.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script>
+        $(document).ready(function () {
+        $('#example').DataTable();
+    });
+    </script>
+    
+</head>
+<body onload="mostrarE()">
+     <div class="container">
+     <header>
+     <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mb-5">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarExample01">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="navbar-brand me-0 mb-2 mb-lg-0" href="inicio.html"><img src="img/logo.png" class="me-1" height="40" alt="Logo" loading="lazy"/></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2 mb-2 mb-lg-0" href="inicio.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2 mb-2 mb-lg-0" href="afiliados.html">Afiliados</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2 mb-2 mb-lg-0" href="Empleador.html">Empleador</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2 mb-2 mb-lg-0" href="independiente.html">Independiente</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2 mb-2 mb-lg-0" href="index.html">Cerrar sesion</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      </div>
+      </header>
+      <div class="container">
+      <header class="bg-info row" style="margin-top: 100px">
+       <h3 class="text-center col-9 my-auto" style="font-family: 'Bungee', cursive;">Empleadores Afiliados</h3>
+       <span class="col-1"></span>
+       <button type="button" class="btn btn-success col-2 mt-1 mb-1" style="width: 170px" data-bs-toggle="modal" data-bs-target="#ModalE"><ion-icon name="add-outline"></ion-icon>Agregar Empleador</button>
+        </header>
+        <table id="example" class="table" >
+              <thead>
+                <tr>
+                 <th scope="col">Tipo</th>
+                  <th scope="col">Nit o cedula</th>
+                  <th scope="col">Razon Social</th>
+                  <th scope="col">Ciudad</th>
+                  <th scope="col">Direccion</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Codigo Postal</th>
+                  <th scope="col">Regimen</th>
+                  <th scope="col">Opciones</th>
+                </tr>
+              </thead>
+              <tbody id="tablaEM" class="table-group-divider">
+
+              </tbody>
+            </table>
+            
+            <!-- Toast -->
+            
+            <div  class="toast-container" style="position: absolute; top: 10px; right: 10px;">
+                <div id="emple" class="toast fade">
+                    <div class="toast-header">
+                        <strong class="me-auto"><i class="bi-globe"></i> Notificacion!</strong>
+                        <small>Justo Ahora</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body">
+                        Dato eliminado correctamente
+                    </div>
+                </div>
+            </div>
+        <!-- Modal -->
+        <div class="modal fade" id="ModalE" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registro Empleador</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body justify-content-around">
+                        <form id="crearE" action="">
+                        <div class="container mt-5">
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>Tipo</label>
+                                    <select class="form-control" id="tipoE">
+                                        <option>--Seleccione--</option>
+                                        <option>Juridico</option>
+                                        <option>Natural</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Nit o cedula</label>
+                                    <input type="number" id="nitE" required class="form-control" placeholder="Ingrese identificacion">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Razon social</label>
+                                    <input type="text" id="nameE" required class="form-control" placeholder="Ingrese nombre" maxlength="30">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Ciudad</label>
+                                    <select class="form-control" id="cityE">
+                                        <option>--Seleccione--</option>
+                                        <option>Bogota</option>
+                                        <option>Santa Marta</option>
+                                        <option>cartagena</option>
+                                        <option>Barranquilla</option>
+                                        <option>Cali</option>
+                                        <option>Villavicencio</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Direccion</label>
+                                    <input type="text" id="dirE" required class="form-control" placeholder="Ingrese su direccion">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="">Email</label>
+                                    <input type="email" name="" id="correoE" required class="form-control" placeholder="Ingrese su correo">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Codigo postal</label>
+                                    <input type="text" min="1" max="6" id="cpE" class="form-control" placeholder="ingrese codigo postal">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Regimen</label>
+                                    <select id="regE" class="form-control">
+                                        <option>--Seleccione--</option>
+                                        <option>Simplificado</option>
+                                        <option>Comun</option>
+                                        <option>Especial</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="registroE()">Registrar</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    <!--modal editar-->
+    <div class="modal fade" id="ModalE2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div id="editarEMP" class="modal-content">
+                   
+                    
+                </div>
+            </div>
+    </div>
+    <!--modal editar fin-->
+    
+    </div>
+    </div>
+
+</body>
+</html>
