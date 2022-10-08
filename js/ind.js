@@ -116,9 +116,11 @@ function editarI(nitI){
                                     <label>Regimen</label>
                                     <select id="sedI1" class="form-control">
                                         <option value="${arrInd[i].sed}" selected>${arrInd[i].sed}</option>
-                                        <option>Simplificado</option>
-                                        <option>Comun</option>
-                                        <option>Especial</option>
+                                        <option>Norte</option>
+                                        <option>Sur</option>
+                                        <option>Este</option>
+                                        <option>Oeste</option>
+                                        <option>Centro</option>
                                     </select>
                                 </div>
                             </div>
